@@ -14,10 +14,35 @@ class _MyProfilePageState extends State<MyProfilePage> {
     return Scaffold(
       backgroundColor: Colors.purple,
       appBar: AppBar(
-        title: const Text("Halaman Profile"),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            size: 20,
+          ),
+        ),
+        title: const Text(
+          "Halaman Profile",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.favorite)),
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, "/SettingsPage");
+            },
+            icon: const Icon(Icons.settings),
+          ),
+        ],
       ),
       body: Center(
-        child: Column(  // Updated this line
+        child: Column(
+          // Updated this line
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
@@ -31,7 +56,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                   ),
                 );
               },
-              child: const Text("Go to Settings"),  // Added a child with text
+              child: const Text("Go to Settings"), // Added a child with text
             ),
           ],
         ),

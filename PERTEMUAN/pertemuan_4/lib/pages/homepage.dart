@@ -12,6 +12,33 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        backgroundColor: Colors.white,
+        child: Column(
+          children: [
+            const UserAccountsDrawerHeader(
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('assets/profile.png'),
+              ),
+              accountName: Text("Praktikum Mobile"),
+              accountEmail: Text('mobile@gmail.com'),
+              decoration: BoxDecoration(color: Colors.lightBlueAccent),
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
+              onTap: () {
+                Navigator.pushNamed(context, "/SettingsPage");
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.search),
+              title: const Text('Cari'),
+              onTap: () {},
+            ),
+          ],
+        ),
+      ),
       body: Center(
         child: Column(  // Added `child`
           mainAxisAlignment: MainAxisAlignment.center,
